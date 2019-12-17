@@ -1,0 +1,37 @@
+{
+  "name": "locjs",
+  "version": "0.0.1",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "license": "MIT",
+  "npmName": "locjs",
+  "npmFileMap": [
+    {
+      "basePath": "/dist/",
+      "files": [
+        "*.js"
+      ]
+    }
+  ],
+  "dependencies": {
+    "axios": "^0.18.1",
+    "btoa": "^1.1.2",
+    "eventemitter3": "^2.0.3",
+    "locktrip-ethjs-abi": "^0.0.1",
+    "url-parse": "^1.4.7"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.1",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/mocha": "^2.2.46",
+    "@types/node": "^8.0.31",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.1.4",
+    "ts-loader": "^6.0.4",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  }
+}

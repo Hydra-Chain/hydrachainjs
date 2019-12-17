@@ -1,0 +1,8 @@
+lib/
+dist/
+.vscode/
+node_modules/
+.DS_Store
+.locktrip
+.cache
+solar.development.json
