@@ -1,10 +1,10 @@
 {
-  "name": "locjs",
+  "name": "hydrajs",
   "version": "0.0.1",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "license": "MIT",
-  "npmName": "locjs",
+  "npmName": "hydrajs",
   "npmFileMap": [
     {
       "basePath": "/dist/",
@@ -17,7 +17,7 @@
     "axios": "^0.18.1",
     "btoa": "^1.1.2",
     "eventemitter3": "^2.0.3",
-    "locktrip-ethjs-abi": "^0.0.1",
+    "hydra-ethjs-abi": "^0.0.1",
     "url-parse": "^1.4.7"
   },
   "devDependencies": {

@@ -21,7 +21,7 @@ export interface IRPCCallOption {
   cancelToken?: CancelToken,
 }
 
-export class LockTripRPCRaw {
+export class HydraRPCRaw {
   private idNonce: number
   private _api: AxiosInstance
 

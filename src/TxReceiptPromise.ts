@@ -4,8 +4,8 @@ import {
   IRPCGetTransactionReceiptResult,
   IRPCGetTransactionRequest,
   IRPCGetTransactionResult,
-  LockTripRPC,
-} from "./LockTripRPC"
+  HydraRPC,
+} from "./HydraRPC"
 import { sleep } from "./sleep"
 
 export type TxReceiptConfirmationHandler = (
@@ -24,7 +24,7 @@ export class TxReceiptPromise {
   private _emitter: EventEmitter
 
   constructor(
-    private _rpc: LockTripRPC,
+    private _rpc: HydraRPC,
     public txid: string,
   ) {
     this._emitter = new EventEmitter()

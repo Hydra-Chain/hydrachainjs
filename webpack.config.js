@@ -18,9 +18,9 @@ module.exports = {
     extensions: [".ts", ".js"]
   },
   output: {
-    filename: "locktrip.js",
+    filename: "hydra.js",
     path: path.resolve(__dirname, "dist"),
-    library: "LockTrip",
+    library: "Hydra",
     libraryTarget: "umd"
   }
 };

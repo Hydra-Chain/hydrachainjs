@@ -1,6 +1,6 @@
 import { IContractInfo, Contract } from "./Contract"
 import { IABIMethod } from "./ethjs-abi"
-import { LockTripRPC } from "./LockTripRPC"
+import { HydraRPC } from "./HydraRPC"
 import { ContractLogDecoder } from "./abi"
 import { EventListener } from "./EventListener"
 
@@ -47,7 +47,7 @@ export class ContractsRepo {
    */
   public logDecoder: ContractLogDecoder
 
-  constructor(private rpc: LockTripRPC, private repoData: IContractsRepoData) {
+  constructor(private rpc: HydraRPC, private repoData: IContractsRepoData) {
     const eventABIs = this.allEventABIs()
     this.logDecoder = new ContractLogDecoder(eventABIs)
   }

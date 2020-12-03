@@ -1,5 +1,5 @@
-# locjs
+# hydrajs
 
-LockTrip DApp JavaScript Library
+HYDRA DApp JavaScript Library
 
-The LockTrip  JavaScript library for smart contract development
+The HYDRA JavaScript library for smart contract development

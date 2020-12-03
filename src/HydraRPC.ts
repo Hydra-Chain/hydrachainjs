@@ -1,4 +1,4 @@
-import { LockTripRPCRaw } from "./LockTripRPCRaw"
+import { HydraRPCRaw } from "./HydraRPCRaw"
 
 export interface IGetInfoResult {
   version: number,
@@ -16,9 +16,9 @@ export interface IGetInfoResult {
   },
   testnet: boolean,
   moneysupply: number,
+  burnedcoins: number,
   keypoololdest: number,
   keypoolsize: number,
-  paytxfee: number,
   relayfee: number,
   errors: string,
 }
@@ -35,22 +35,17 @@ export interface IRPCSendToContractRequest {
   datahex: string
 
   /**
-   * The amount in LOC to send. eg 0.1, default: 0
+   * The amount in HYDRA to send. eg 0.1, default: 0
    */
   amount?: number | string
 
   /**
-   * gasLimit, default: 200000, max: 40000000
+   * gasLimit, default: 250000, max: 40000000
    */
   gasLimit?: number
 
   /**
-   * Loc price per gas unit, default: 0.00000001, min:0.00000001
-   */
-  gasPrice?: number | string
-
-  /**
-   * The locktrip address that will be used as sender.
+   * The hydra address that will be used as sender.
    */
   senderAddress?: string
 
@@ -66,7 +61,7 @@ export interface IRPCSendToContractResult {
    */
   txid: string,
   /**
-   * LockTrip address of the sender.
+   * HYDRA address of the sender.
    */
   sender: string,
   /**
@@ -162,7 +157,7 @@ export interface IRPCGetTransactionReceiptRequest {
 }
 
 /**
- * Transaction receipt returned by locktripd
+ * Transaction receipt returned by hydrad
  */
 export interface IRPCGetTransactionReceiptBase {
   blockHash: string
@@ -192,9 +187,7 @@ export interface ITransactionLog {
 
 const sendToContractRequestDefaults = {
   amount: 0,
-  gasLimit: 200000,
-  // FIXME: Does not support string gasPrice although the doc says it does.
-  gasPrice: 0.0000004,
+  gasLimit: 250000
 }
 
 export interface IRPCWaitForLogsRequest {
@@ -225,7 +218,7 @@ export interface ILogFilter {
 }
 
 /**
- * The raw log data returned by locktripd, not ABI decoded.
+ * The raw log data returned by hydrad, not ABI decoded.
  */
 export interface ILogEntry extends IRPCGetTransactionReceiptBase {
   /**
@@ -282,7 +275,7 @@ export interface IPromiseCancel<T> extends Promise<T> {
   cancel: () => void
 }
 
-export class LockTripRPC extends LockTripRPCRaw {
+export class HydraRPC extends HydraRPCRaw {
   private _hasTxWaitSupport: boolean | undefined
 
   public getInfo(): Promise<IGetInfoResult> {
@@ -300,7 +293,6 @@ export class LockTripRPC extends LockTripRPCRaw {
       vals.datahex,
       vals.amount,
       vals.gasLimit,
-      vals.gasPrice,
     ]
 
     if (vals.senderAddress) {

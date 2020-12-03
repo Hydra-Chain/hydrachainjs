@@ -1,14 +1,14 @@
-import { LockTripRPC } from "./LockTripRPC"
+import { HydraRPC } from "./HydraRPC"
 import { IContractsRepoData, ContractsRepo } from "./ContractsRepo"
 import { Contract } from "./Contract"
 
 /**
- * The `LockTrip` class is an instance of the `locjs` API.
+ * The `Hydra` class is an instance of the `hydrajs` API.
  *
- * @param providerURL URL of the locktripd RPC service.
+ * @param providerURL URL of the hydrad RPC service.
  * @param repoData Information about Solidity contracts.
  */
-export class LockTrip extends LockTripRPC {
+export class Hydra extends HydraRPC {
   private repo: ContractsRepo
 
   constructor(providerURL: string, repoData?: IContractsRepoData) {

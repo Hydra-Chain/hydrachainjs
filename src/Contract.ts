@@ -3,7 +3,7 @@ import { EventEmitter } from "eventemitter3"
 
 const {
   logDecoder,
-} = require("locktrip-ethjs-abi") as IETHABI
+} = require("hydra-ethjs-abi") as IETHABI
 
 import {
   decodeOutputs,
@@ -20,10 +20,10 @@ import {
   IRPCGetTransactionResult,
   IRPCSendToContractResult,
   IRPCWaitForLogsResult,
-  LockTripRPC,
+  HydraRPC,
   IRPCWaitForLogsRequest,
   ILogEntry,
-} from "./LockTripRPC"
+} from "./HydraRPC"
 
 import {
   TxReceiptConfirmationHandler,
@@ -121,7 +121,7 @@ export interface IContractCallResult extends IRPCCallContractResult {
  */
 export interface IContractSendRequestOptions {
   /**
-   * The amount in LOC to send. eg 0.1, default: 0
+   * The amount in HYDRA to send. eg 0.1, default: 0
    */
   amount?: number | string
 
@@ -129,11 +129,6 @@ export interface IContractSendRequestOptions {
    * gasLimit, default: 200000, max: 40000000
    */
   gasLimit?: number
-
-  /**
-   * LockTrip price per gas unit, default: 0.00000001, min:0.00000001
-   */
-  gasPrice?: number | string
 
   /**
    * The quantum address that will be used as sender.
@@ -238,7 +233,7 @@ export class Contract {
    *      address, owner address, and ABI definition for methods and types.
    * @param opts - init options
    */
-  constructor(private rpc: LockTripRPC, public info: IContractInfo, opts: IContractInitOptions = {}) {
+  constructor(private rpc: HydraRPC, public info: IContractInfo, opts: IContractInitOptions = {}) {
     this.methodMap = new MethodMap(info.abi)
     this.address = info.address
 
@@ -280,7 +275,7 @@ export class Contract {
   }
 
   /**
-   * Executes contract method on your own local locktripd node as a "simulation"
+   * Executes contract method on your own local hydrad node as a "simulation"
    * using `callcontract`. It is free, and does not actually modify the
    * blockchain.
    *
@@ -401,7 +396,7 @@ export class Contract {
       base = targetBase
     } else {
       switch (targetBase) {
-        case "loc":
+        case "hydra":
         case "btc":
           base = 0
           break

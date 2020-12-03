@@ -3,6 +3,6 @@ dist/
 .vscode/
 node_modules/
 .DS_Store
-.locktrip
+.hydra
 .cache
 solar.development.json

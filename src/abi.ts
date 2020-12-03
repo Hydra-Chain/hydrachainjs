@@ -10,13 +10,13 @@ const {
   encodeMethod,
   logDecoder,
   configure: configureABI,
-} = require("locktrip-ethjs-abi") as IETHABI
+} = require("hydra-ethjs-abi") as IETHABI
 
 configureABI({ noHexStringPrefix: true })
 
 import {
   ITransactionLog,
-} from "./LockTripRPC"
+} from "./HydraRPC"
 
 export function encodeInputs(method: IABIMethod, args: any[] = []): string {
   const calldata = encodeMethod(method, args)

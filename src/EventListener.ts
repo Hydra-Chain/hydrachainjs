@@ -1,6 +1,6 @@
 import { EventEmitter } from "eventemitter3"
 
-import { LockTripRPC, IRPCWaitForLogsRequest, IPromiseCancel } from "./LockTripRPC"
+import { HydraRPC, IRPCWaitForLogsRequest, IPromiseCancel } from "./HydraRPC"
 import { ContractLogDecoder } from "./abi"
 import { IContractEventLogs, IContractEventLog } from "./Contract"
 
@@ -13,7 +13,7 @@ export interface ICancellableEventEmitter extends EventEmitter {
 export class EventListener {
   // TODO filter out unparseable logs
 
-  constructor(private rpc: LockTripRPC, private logDecoder: ContractLogDecoder) {
+  constructor(private rpc: HydraRPC, private logDecoder: ContractLogDecoder) {
   }
 
   /**

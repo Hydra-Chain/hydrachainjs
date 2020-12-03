@@ -1,6 +1,6 @@
-const { Contract, LockTripRPC } = require("locjs")
+const { Contract, HydraRPC } = require("hydrajs")
 
-const rpc = new LockTripRPC("http://user:password@localhost:13389")
+const rpc = new HydraRPC("http://user:password@localhost:13389")
 
 async function main() {
   // Load the ABI and address of a deployed contract
