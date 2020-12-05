@@ -1,6 +1,6 @@
-const { Contract, HydraRPC } = require("hydrajs")
+const { Contract, HydraRPC } = require("hydrachainjs")
 
-const rpc = new HydraRPC("http://user:password@localhost:13389")
+const rpc = new HydraRPC("http://user:password@localhost:3389")
 
 async function main() {
   // Load the ABI and address of a deployed contract
@@ -17,7 +17,7 @@ async function main() {
   // Wait for transaction to confirm (wait for 1 block)
   console.log("txid", receipt.txid)
   console.log("waiting for transaction confirmation")
-  await receipt.done(1)
+  await receipt.confirm(1)
 
   // Make an RPC call of a constant function
   const callResult = await foo.call("getA")
